@@ -1,0 +1,36 @@
+#include<stdio.h>
+#include<string.h>
+//结构体
+//char int double简单类型
+//人 书
+//姓名+性别+年龄+身高等
+//书名+作者+出版社+价格等
+//这类复杂对象--结构体-我们自己创造的一种类型
+//创建一个结构体类型
+struct Book {
+	char name[20];//书名
+	int price;
+};
+//strcpy需要加上下面这一行
+#pragma warning(disable:4996)
+int main() {
+	//利用结构体类型创建一个该类型的结构体变量
+	struct Book b1={"C语言程序设计",55 };
+	//利用指针变量打印
+	struct Book* pb = &b1;
+	/*printf("书名：%s\n", (*pb).name);
+	printf("价格：%d\n", (*pb).price);*/
+	//更简单的指针打印
+	printf("书名：%s\n", pb->name);
+	printf("价格：%d\n", pb->price);
+	strcpy(b1.name, "C++");//strcpy--string copy字符串拷贝--库函数要用string.h
+	printf("书名：%s\n", b1.name);
+	//. --结构体变量.成员
+	//-> --结构体指针->成员
+	//直接打印
+	/*printf("书名：%s\n", b1.name);
+	printf("价格：%d\n", b1.price);
+	b1.price = 15;
+	printf("甩卖后的价格：%d\n", b1.price);*/
+	return 0;
+}
