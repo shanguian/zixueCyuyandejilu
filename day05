@@ -1,0 +1,88 @@
+#include<stdio.h>
+//int Add(int x, int y) {
+//	int z = 0;
+//	return z = x + y;
+//}
+//int main() {
+//	int a = 10;
+//	int b = 20;
+//	int sum = Add(a, b);
+//	printf("%d\n", sum);
+//	return 0;
+//}
+
+//#include<string.h>
+//#pragma warning(disable:4996)
+//int main() {
+//	char arr1[] = "bit";
+//	char arr2[15] = "#####";
+//	//拷贝           bit\0,\0表示字符串结束
+//	strcpy(arr2, arr1);
+//	printf("%s\n", arr2);
+//	//strcpy字符串拷贝
+//	//strlen--字符串长度        cplusplus.com查找库函数
+//	return 0;
+//}
+
+////memset
+////memory-内存 set-设置
+//int main() {
+//	char arr[] = "hello world";
+//	 memset(arr, '*', 5);
+//	//arr中，将前五个字符替换成*
+//	printf("%s\n", arr);
+//	return 0;
+//}
+
+////函数的定义
+//int get_max(int a, int b) {
+//	if (a > b)
+//		return a;
+//	else
+//		return b;
+//}
+//int main() {
+//	int a = 10;
+//	int b = 20;
+//	//函数的使用
+//	int max = get_max(a, b);
+//	printf("%d\n", max);
+//}
+
+//这里函数不成功是因为，自定义的函数和主函数的值相同但是地址不同，所有不成功
+//void swap(int a, int b) {
+//	int tmp = 0;
+//	tmp = a;
+//	a = b;
+//	b = tmp;
+//}
+//int main() {
+//	int a = 10;
+//	int b = 20;
+//	printf("a=%d b=%d\n", a, b);
+//	swap(a, b);
+//	printf("a=%d b=%d\n", a, b);
+//	return 0;
+//}
+
+//当实参传给形参的时候
+//形参其实实参的一份临时拷贝
+//对形参的修改是不会改变实参的
+void swap1(int* pa, int* pb) {// int* pa,int* pb形参
+	int tmp=0;
+	tmp = *pa;
+	*pa = *pb;
+	*pb = tmp;
+}
+int main() {
+	//int a = 10;
+	//int* p = &a;//指针变量
+	//*p = 20;
+	//printf("%d\n", *p);
+	int a = 10;
+	int b = 20;
+	printf("a=%d b=%d\n", a, b);
+	swap1(&a, &b);//&a,&b实参
+	printf("a=%d b=%d\n", a, b);
+	return 0;
+}
