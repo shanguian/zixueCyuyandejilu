@@ -1,0 +1,123 @@
+#include<stdio.h>
+//int main() {
+//	printf("hehe\n");
+//	main();
+//	//最简单的递归调用
+//	return 0;
+//}
+
+//用递归写输入1234 ，然后输出 1 2 3 4
+//void print(int n) {
+//	if (n > 9)
+//		print(n / 10);
+//	printf("%d ", n % 10);
+//}
+//int main() {
+//	int num = 1234;
+//	//递归
+//	print(num);
+//	//(1234) 123 4
+//	//(123)  12
+//	//(12) 1
+//	return 0;
+//}
+
+//用递归计算一个字符串的长度，不能有临时变量
+//int my_strlen(char* str) {
+//	int count = 0;
+//	while (*str!='\0') {
+//		count++;
+//		str++;
+//	}
+//	return count;
+//}
+//不创建临时变量解决这个问题
+//递归，大事化小
+//my_strlen("bit")
+//1+mystrlen("it")
+//1+1+mystrlen("t")
+//1+1+1+mystrlen("")
+//int my_strlen(char* str) {
+//	if (*str != '\0') {
+//		return 1 + my_strlen(str+1);
+//	}
+//	else {
+//		return 0;
+//	}
+//}
+//int main() {
+//	char arr[] = "bit";
+//	/*int len = strlen(arr);
+//	printf("%d\n", len);*/
+//	int len = my_strlen(arr);//arr是一个数组，函数传上去的参数是数组中首元素的一个地址
+//	printf("len=%d\n", len);
+//	return 0;
+//}
+
+//用递归求n的阶乘
+//int Fac1(int n) {
+//	int i = 0;
+//	int ret = 1;
+//	for (i = 1; i <= n; i++) {
+//		ret *= i;
+//	}
+//	return ret;
+//}
+//int	Fac2(int n) {
+//	if (n <= 1)
+//		return 1;
+//	else
+//		return n * Fac2(n - 1);
+//}
+//int main() {
+//	int n = 0;
+//	scanf_s("%d", &n);
+//	int ret = 0;
+//	//ret = Fac1(n);//循环的方式求得阶乘
+//	ret = Fac2(n);//递归的方式求阶乘
+//	printf("%d\n ", ret);
+//	return 0;
+//}
+
+//用递归求第n个斐波那契数列
+//int count = 0;
+//int Fab(int n) {
+//	/*if (n == 3) {测试斐波那契数列
+//		count++;
+//	}*/
+//	if (n <= 2)
+//		return 1;
+//	else
+//		return n = Fab(n - 1) + Fab(n - 2);
+//}
+//int Fab(int n) {
+//	int a = 1;
+//	int b = 1;
+//	int c = 1;
+//	while (n > 2) {
+//		c = a + b;
+//		a = b;
+//		b = c;
+//		n--;
+//	}
+//	return c;
+//}
+//int main() {
+//	int n = 0;
+//	scanf_s("%d", &n);
+//	int ret = 0;
+//	ret = Fab(n);
+//	printf("ret=%d\n ", ret);
+//	return 0;
+//}
+
+//栈溢出
+void test(int n) {
+	if (n < 10000) {
+		test(n + 1);
+	}
+}
+int main() {
+	test(1);
+	return 0;
+}
